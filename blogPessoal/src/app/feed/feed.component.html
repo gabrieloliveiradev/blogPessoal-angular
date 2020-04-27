@@ -26,14 +26,14 @@
                 <h3 class="text-center mb-4 text-monospace">Como tem sido minha experiência na Generation</h3>
                 <div class="form-group">
                     <label for="titulo" class="text-monospace">Titulo:</label>
-                    <input type="text" id="titulo" class="form-control" name="titulo" placeholder="Digite seu titulo">
+                    <input type="text" id="titulo" class="form-control" name="titulo" placeholder="Digite seu titulo" [(ngModel)]="postagem.titulo">
                 </div>
                 <div class="form-group">
                     <label for="texto" class="text-monospace">Texto:</label>
-                    <textarea name="texto" id="texto" cols="30" rows="4" class="form-control" placeholder="Digite seu texto"></textarea>
+                    <textarea name="texto" id="texto" cols="30" rows="4" class="form-control" placeholder="Digite seu texto" [(ngModel)]="postagem.texto"></textarea>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-outline-info w-25">Publicar</button>
+                    <button type="button" class="btn btn-outline-info w-25" (click)="publicar()">Publicar</button>
                 </div>
                 <hr class="my-5">
                 <h3 class="text-monospace text-center mb-5">Minhas Postagens</h3>

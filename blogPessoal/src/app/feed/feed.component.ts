@@ -8,7 +8,8 @@ import { Postagem } from '../model/Postagem';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit {
-
+  key = 'data'
+  reverse = true
   listaPostagens: Postagem[]
   postagem: Postagem = new Postagem
 
@@ -26,7 +27,7 @@ export class FeedComponent implements OnInit {
   publicar (){
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
       this.postagem = resp
-      location.assign('/feed')
+      location.assign('/feed') //para atualizar o feed assim que a postagem for feita
     })
   }
 }

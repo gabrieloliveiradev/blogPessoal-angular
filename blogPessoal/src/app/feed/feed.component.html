@@ -37,6 +37,11 @@
                 </div>
                 <hr class="my-5">
                 <h3 class="text-monospace text-center mb-5">Minhas Postagens</h3>
+                <div *ngIf = 'alerta'>
+                    <div class="alert alert-success" role="alert">
+                        Postagem deletada com sucesso!
+                    </div>
+                </div>
 
                 <div class="card mb-4" *ngFor="let postagem of listaPostagens | orderBy : key: reverse">
 
@@ -46,7 +51,9 @@
                                 <h5 class="card-title">{{ postagem.titulo }}</h5>
                             </div>
                             <div class="col-md-4 d-flex justify-content-end">
-                                <button class="btn btn-outline-info" [routerLink] = "['/editar', postagem.id]">Editar</button>
+                                <button class="btn btn-outline-info mr-3" [routerLink] = "['/editar', postagem.id]">Editar</button>
+
+                                <button class="btn btn-outline-danger" [routerLink] = "['/deletar', postagem.id]">Apagar</button>
                             </div>
                         </div>
                     </div>

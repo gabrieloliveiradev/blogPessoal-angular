@@ -24,7 +24,7 @@ export class FeedComponent implements OnInit {
       this.listaPostagens = resp
     })
   }
-  publicar (){
+  publicar(){
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
       this.postagem = resp
       location.assign('/feed') //para atualizar o feed assim que a postagem for feita

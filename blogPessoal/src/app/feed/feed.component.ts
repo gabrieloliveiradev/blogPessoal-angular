@@ -13,6 +13,7 @@ export class FeedComponent implements OnInit {
   listaPostagens: Postagem[]
   postagem: Postagem = new Postagem
   alerta:boolean = false
+  titulo:string
 
   constructor(private postagemService: PostagemService) { }
 
@@ -38,6 +39,11 @@ export class FeedComponent implements OnInit {
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
       this.postagem = resp
       location.assign('/feed') //para atualizar o feed assim que a postagem for feita
+    })
+  }
+  pesquisarPorTitulo(){
+    this.postagemService.findByTitulo(this.titulo).subscribe((resp: Postagem[])=>{
+      this.listaPostagens = resp
     })
   }
 }
